@@ -14,7 +14,7 @@ const (
 )
 
 func DatabaseConnection() (db *sql.DB, err error) {
-	sqlInfo := fmt.Sprintf("server=%server;user id=%s; password=%s", server, user, password)
+	sqlInfo := fmt.Sprintf("server=%sserver;user id=%s; password=%s,database=%s", server, user, password, dbname)
 	db, err = sql.Open("mssql", sqlInfo)
 	return
 }
