@@ -3,14 +3,16 @@ package config
 import (
 	"database/sql"
 	"fmt"
+
+	_ "github.com/denisenkom/go-mssqldb"
 )
 
 const (
-	server   = "localhost"
-	user     = "sa"
-	password = "password"
-	dbname   = "database"
-	port     = "port"
+	server   = "serve"
+	user     = "user_testSQL"
+	password = "Desarrollo1"
+	dbname   = "Test_mgm"
+	port     = "1433"
 )
 
 func DatabaseConnection() (db *sql.DB, err error) {

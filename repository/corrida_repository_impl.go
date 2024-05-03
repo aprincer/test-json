@@ -68,9 +68,23 @@ func (c *CorridaRepositoryImpl) FindById(ctx context.Context, corridaID int) (mo
 }
 
 func (c *CorridaRepositoryImpl) Save(ctx context.Context, corrida model.Corrida) {
-	panic("unimplemented")
+	tx, err := c.Db.Begin()
+	helper.PanicIfError(err)
+	defer helper.CommitOrRollback(tx)
+
+	SQL := "INSERT INTO corrida (name) VALUES($1)"
+	_, err = tx.ExecContext(ctx, SQL, corrida.Name)
+	helper.PanicIfError(err)
+
 }
 
 func (c *CorridaRepositoryImpl) Update(ctx context.Context, corrida model.Corrida) {
-	panic("unimplented")
+	tx, err := c.Db.Begin()
+	helper.PanicIfError(err)
+	defer helper.CommitOrRollback(tx)
+
+	SQL := "UPDATE corrida set name=$1 WHERE id=$2"
+	_, err = tx.ExecContext(ctx, SQL, corrida.Name, corrida.Id)
+	helper.PanicIfError(err)
+
 }
