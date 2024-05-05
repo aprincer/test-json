@@ -1,6 +1,6 @@
 package request
 
 type CorridaUpdateRequest struct {
-	Id   int
-	Name string `validate :"required min=1, max=100" json:"name"`
+	Id        int
+	Secuencia int `validate :"required min=1, max=1000" json:"name"`
 }

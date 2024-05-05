@@ -37,10 +37,10 @@ func (controller *CorridaController) Update(writer http.ResponseWriter, rq *http
 	corridaUpdateRequest := request.CorridaUpdateRequest{}
 	helper.ReadRequestBody(rq, &corridaUpdateRequest)
 
-	corridaId := params.ByName("corridaId")
-	id, err := strconv.Atoi(corridaId)
-	helper.PanicIfError(err)
-	corridaUpdateRequest.Id = id
+	//corridaId := params.ByName("corridaId")
+	//id, err := strconv.Atoi(corridaId)
+	//helper.PanicIfError(err)
+	//corridaUpdateRequest.Id = id
 	controller.CorridaService.Update(rq.Context(), corridaUpdateRequest)
 
 	controller.CorridaService.Update(rq.Context(), corridaUpdateRequest)
