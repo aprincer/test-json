@@ -9,8 +9,9 @@ import (
 	"github.com/julienschmidt/httprouter"
 )
 
-func NewRouter(corridaController *controller.CorridaController) *httprouter.Router {
-	router := httprouter.New()
+// func NewRouter(corridaController *controller.CorridaController) *httprouter.Router {
+func NewRouter(corridaController *controller.CorridaController, router *httprouter.Router) {
+	//router := httprouter.New()
 
 	router.GET("/", func(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 		fmt.Fprintf(w, "Welcome to my json-test API")
@@ -21,5 +22,12 @@ func NewRouter(corridaController *controller.CorridaController) *httprouter.Rout
 	router.POST("/api/corrida", corridaController.Create)
 	router.PATCH("/api/corrida/:corridaId", corridaController.Update)
 	router.DELETE("/api/corrida/:corridaId", corridaController.Delete)
-	return router
+	//return router
+}
+
+// func NewRouterTableInfo(tbc *controller.TableInfoController) *httprouter.Router {
+func NewRouterTableInfo(tbc *controller.TableInfoController, router *httprouter.Router) {
+	//router := httprouter.New()
+	router.GET("/api/table-info", tbc.FindAll)
+	//return router
 }

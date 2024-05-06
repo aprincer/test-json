@@ -2,7 +2,6 @@ package service
 
 import (
 	"context"
-	"fmt"
 	"test-json/data/request"
 	"test-json/data/response"
 	"test-json/helper"
@@ -36,7 +35,6 @@ func (c *CorridaServiceImpl) FindAll(ctx context.Context) []response.CorridaResp
 
 	var corridaResp []response.CorridaResponse
 	for _, value := range corridas {
-		fmt.Println("Init Result")
 		corrida := response.CorridaResponse{
 			//Col_name: value.Col_name, Data_type: value.Data_type,
 			Id:                         value.Id,

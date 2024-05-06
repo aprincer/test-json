@@ -3,10 +3,10 @@ package controller
 import (
 	"net/http"
 	"strconv"
-	service "test-json/Service"
 	"test-json/data/request"
 	"test-json/data/response"
 	"test-json/helper"
+	"test-json/service"
 
 	"github.com/julienschmidt/httprouter"
 )
