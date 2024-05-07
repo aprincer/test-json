@@ -41,3 +41,30 @@ func (tr *TableInfoRepositoryImpl) FindAll(ctx context.Context) []model.TableInf
 	}
 	return tableInfo
 }
+
+func (tr *TableInfoRepositoryImpl) FindByName(ctx context.Context, name string) []model.TableInfo {
+	tx, err := tr.Db.Begin()
+	helper.PanicIfError(err)
+	defer helper.CommitOrRollback(tx)
+
+	SQL := "select CONCAT(COLUMN_NAME,' ',data_type) column_name, data_type FROM   INFORMATION_SCHEMA.Columns where table_name = $1"
+	result, errQuery := tx.QueryContext(ctx, SQL, name)
+	helper.PanicIfError(errQuery)
+	defer result.Close()
+	var tableInfo []model.TableInfo
+
+	for result.Next() {
+		tbl := model.TableInfo{}
+		errResult := result.Scan(
+			&tbl.Col_name,
+			&tbl.Data_type,
+		)
+		//fmt.Printf("data: %s ", tbl.Col_name)
+		if errResult == nil {
+			tableInfo = append(tableInfo, tbl)
+		} else {
+			helper.PanicIfError(errResult)
+		}
+	}
+	return tableInfo
+}

@@ -26,3 +26,13 @@ func (tc *TableInfoController) FindAll(w http.ResponseWriter, r *http.Request, p
 	}
 	helper.WriteResponseBody(w, webResponse)
 }
+
+func (tc *TableInfoController) FindByName(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
+	result := tc.TableInfoService.FindByName(r.Context(), params.ByName("name"))
+	webResponse := response.WebResponse{
+		Code:   200,
+		Status: "Ok,",
+		Data:   result,
+	}
+	helper.WriteResponseBody(w, webResponse)
+}

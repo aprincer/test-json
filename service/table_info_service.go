@@ -7,4 +7,5 @@ import (
 
 type TableInfoService interface {
 	FindAll(ctx context.Context) []response.TableInfoResponse
+	FindByName(ctx context.Context, name string) []response.TableInfoResponse
 }

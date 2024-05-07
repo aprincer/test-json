@@ -29,5 +29,5 @@ func NewRouter(corridaController *controller.CorridaController, router *httprout
 func NewRouterTableInfo(tbc *controller.TableInfoController, router *httprouter.Router) {
 	//router := httprouter.New()
 	router.GET("/api/table-info", tbc.FindAll)
-	//return router
+	router.GET("/api/table-info/:name", tbc.FindByName)
 }
