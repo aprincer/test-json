@@ -21,8 +21,8 @@ type Sondaje struct {
 	S_uuid         string
 	Load_Date      time.Time
 	Loaded_By      string
-	Modified_Date  time.Time
-	Modified_By    string
-	Ts             time.Time
+	Modified_Date  *time.Time
+	Modified_By    *string
+	Ts             string
 	Corridas       []Corrida
 }

@@ -101,7 +101,7 @@ func (c *CorridaRepositoryImpl) FindById(ctx context.Context, corridaID int) (mo
 	helper.PanicIfError(err)
 	defer helper.CommitOrRollback(tx)
 
-	SQL := "SELECT id,name FROM corrida WHERE id=$1"
+	SQL := "SELECT id,secuencia FROM corrida WHERE id=$1"
 	result, errQuery := tx.QueryContext(ctx, SQL, corridaID)
 	helper.PanicIfError(errQuery)
 	defer result.Close()

@@ -31,3 +31,8 @@ func NewRouterTableInfo(tbc *controller.TableInfoController, router *httprouter.
 	router.GET("/api/table-info", tbc.FindAll)
 	router.GET("/api/table-info/:name", tbc.FindByName)
 }
+
+func NewRouterSondaje(sc *controller.SondajeController, router *httprouter.Router) {
+	router.GET("/api/sondaje", sc.FindAll)
+	router.GET("/api/sondaje/:sondajeId", sc.FindById)
+}
