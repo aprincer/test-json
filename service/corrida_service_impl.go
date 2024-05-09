@@ -77,6 +77,7 @@ func (c *CorridaServiceImpl) FindAll(ctx context.Context) []response.CorridaResp
 			Modified_Date:              value.Modified_Date,
 			Modified_By:                value.Modified_By,
 			Ts:                         value.Ts,
+			Fracturas:                  value.Fracturas,
 		}
 		corridaResp = append(corridaResp, corrida)
 	}

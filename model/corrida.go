@@ -49,4 +49,5 @@ type Corrida struct {
 	Modified_Date              *time.Time
 	Modified_By                *string
 	Ts                         *string
+	Fracturas                  []Fractura
 }
