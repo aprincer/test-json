@@ -10,5 +10,6 @@ type CorridaRepository interface {
 	Update(ctx context.Context, corrida model.Corrida)
 	Delete(ctx context.Context, corridaId int)
 	FindById(ctx context.Context, corridaId int) (model.Corrida, error)
+	FindBySondajeId(ctx context.Context, sondajeId int) []model.Corrida
 	FindAll(ctx context.Context) []model.Corrida
 }

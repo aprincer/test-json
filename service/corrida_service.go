@@ -11,5 +11,6 @@ type CorridaService interface {
 	Update(ctx context.Context, request request.CorridaUpdateRequest)
 	Delete(ctx context.Context, corridaID int)
 	FindById(ctx context.Context, corridaID int) response.CorridaResponse
+	FindBySondajeId(ctx context.Context, sondajeId int) []response.CorridaResponse
 	FindAll(ctx context.Context) []response.CorridaResponse
 }

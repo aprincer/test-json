@@ -5,7 +5,7 @@ import (
 )
 
 type FracturaResponse struct {
-	Id                      *int       `json:"id"`
+	Id                      *int       `json:"id_fractura"`
 	Id_sondaje              *int       `json:"id_sondaje"`
 	Id_corrida              *int       `json:"id_corrida"`
 	Id_tipo_discontinuidad  *int       `json:"id_tipo_discontinuidad"`

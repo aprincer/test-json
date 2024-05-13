@@ -9,7 +9,7 @@ import (
 type CorridaResponse struct {
 	//Col_name  string
 	//Data_type string
-	Id                         int              `json:"id"`
+	Id                         int              `json:"id_corrida"`
 	Id_sondaje                 int              `json:"id_sondaje"`
 	Secuencia                  int              `json:"secuencia"`
 	Id_litologia_general       float32          `json:"id_litologia_general"`

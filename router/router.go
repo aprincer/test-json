@@ -19,6 +19,7 @@ func NewRouter(corridaController *controller.CorridaController, router *httprout
 
 	router.GET("/api/corrida", corridaController.FindAll)
 	router.GET("/api/corrida/:corridaId", corridaController.FindById)
+	router.GET("/api/corrida/:corridaId/:sondajeId", corridaController.FindBySondajeId)
 	router.POST("/api/corrida", corridaController.Create)
 	router.PATCH("/api/corrida/:corridaId", corridaController.Update)
 	router.DELETE("/api/corrida/:corridaId", corridaController.Delete)

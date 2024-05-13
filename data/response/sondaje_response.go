@@ -6,7 +6,7 @@ import (
 )
 
 type SondajeResponse struct {
-	Id             int             `json:"id"`
+	Id             int             `json:"id_sondaje"`
 	Id_proyecto    int             `json:"id_proyecto"`
 	Nombre_sondaje string          `json:"nombre_sondaje"`
 	Fecha_inicio   string          `json:"fecha_inicio"`

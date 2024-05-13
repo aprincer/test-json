@@ -91,3 +91,17 @@ func (controller *CorridaController) FindById(writer http.ResponseWriter, rq *ht
 	}
 	helper.WriteResponseBody(writer, webResponse)
 }
+
+func (controller *CorridaController) FindBySondajeId(writer http.ResponseWriter, rq *http.Request, params httprouter.Params) {
+	corridaId := params.ByName("sondajeId")
+	id, err := strconv.Atoi(corridaId)
+	helper.PanicIfError(err)
+
+	result := controller.CorridaService.FindBySondajeId(rq.Context(), id)
+	webResponse := response.WebResponse{
+		Code:   200,
+		Status: "Ok",
+		Data:   result,
+	}
+	helper.WriteResponseBody(writer, webResponse)
+}
